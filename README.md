@@ -135,6 +135,18 @@ Given the same input but with a value of `47 3191`, then the input's value is fo
 
 See the [inputmask-core docs](https://github.com/insin/inputmask-core#isrevealingmask--boolean) for details.
 
+### `placeholderFixed` : `string`
+
+With this option your placeholder would be fixed during typing on input. With this option `isRevealingMask` set to true and `placeholderChar` set to ` `(space) automatically for best expirience using fixed placeholder.
+
+### `classWrapper` : `string`
+
+Only with `placeholderFixed`. This option set class to the wrapper of the input.
+
+### `classPlaceholder` : `string`
+
+Only with `placeholderFixed`. This option set class to the placeholder of the input.
+
 ### Other props
 
 Any other props passed in will be passed as props to the rendered `<input>`, except for the following, which are managed by the component:
