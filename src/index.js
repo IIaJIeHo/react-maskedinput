@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import InputMask from 'inputmask-core'
-import './style.css'
 
 var KEYCODE_Z = 90
 var KEYCODE_Y = 89
@@ -276,6 +275,27 @@ MaskedInput.defaultProps = {
   value: ''
 }
 
+let styles = {
+  maskedWrapper: {
+    position: 'relative'
+  },
+  maskedInput: {
+    background: 'transparent',
+    zIndex: '10'
+  },
+  maskedPlaceholder: {
+    position: 'absolute',
+    width: '100%',
+    left: '0',
+    top: '0',
+    zIndex: '-1'
+  },
+  hide: {
+    display: 'none'
+  }
+}
+
+
 export class MaskedInputFixed extends React.Component {
   constructor(props) {
     super(props)
@@ -310,15 +330,11 @@ export class MaskedInputFixed extends React.Component {
   }
 
   render() {
-    let { showPlaceholder, placeholderFixed, className, classWrapper, classPlaceholder, onChange, ...filteredProps } = this.props
+    let { showPlaceholder, placeholderFixed, className = '', classWrapper = '', classPlaceholder = '', onChange, ...filteredProps } = this.props
     let { placeholderChar, isRevealingMask, ...filteredPropsforInput } = filteredProps
     let fixedPlaceholder = this.state.val.concat(placeholderFixed.slice(this.state.val.length))
 
-    let newClassWrapper = classWrapper ? classWrapper + ' maskedWrapper ' : 'maskedWrapper'
-    let newClassPlaceholder = classPlaceholder ? classPlaceholder + ' maskedPlaceholder' : 'maskedPlaceholder'
-    let newClassMasked = className ? className + ' maskedInput' : 'maskedInput'
-
-    return <div className={newClassWrapper}>
+    return <div className={classWrapper} style={styles.maskedWrapper} >
             <MaskedInput {...filteredProps}
                  onChange={(e) => {
                    this._onChange(e)
@@ -326,10 +342,12 @@ export class MaskedInputFixed extends React.Component {
                  }}
                  value={this.state.val}
                  ref={(r) => this.input = r && r.input}
-              className={newClassMasked}/>
+              className={className}
+              style={styles.maskedInput} />
             <input { ...filteredPropsforInput }
                     value={ fixedPlaceholder }
-                    className={this.props.hidePlaceholder ? newClassPlaceholder + ' hide' : newClassPlaceholder}
+                    style={styles.maskedPlaceholder}
+                    className={this.props.hidePlaceholder ? classPlaceholder + ' ' + styles.hide : classPlaceholder}
                     disabled />
           </div>
   }

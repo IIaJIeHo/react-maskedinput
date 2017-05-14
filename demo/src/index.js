@@ -5,6 +5,8 @@ import { render } from 'react-dom'
 
 import MaskedInput ,{MaskedInputFixed } from '../../src'
 
+
+
 const PATTERNS = [
   '1111 1111',
   '111 111',
