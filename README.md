@@ -147,6 +147,11 @@ Only with `placeholderFixed`. This option set class to the wrapper of the input.
 
 Only with `placeholderFixed`. This option set class to the placeholder of the input.
 
+### `hidePlaceholder` : `boolean`
+
+Only with `placeholderFixed`. This option helps you to contol the visibility of the fixed placeholder.
+
+
 ### Other props
 
 Any other props passed in will be passed as props to the rendered `<input>`, except for the following, which are managed by the component:
