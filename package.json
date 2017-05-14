@@ -1,13 +1,13 @@
 {
-  "name": "react-maskedinput",
+  "name": "react-maskedinput-ultimate",
   "description": "Masked <input/> React component",
-  "version": "3.3.4",
+  "version": "3.4.0",
   "main": "./lib/index.js",
   "jsnext:main": "es6/index.js",
   "standalone": "MaskedInput",
-  "homepage": "https://github.com/insin/react-maskedinput",
+  "homepage": "https://github.com/IIaJIeHo/react-maskedinput",
   "license": "MIT",
-  "author": "Jonny Buchanan <jonathan.buchanan@gmail.com>",
+  "author": "Igor Dolzhenkov <i.dol.market@gmail.com>, Jonny Buchanan <jonathan.buchanan@gmail.com>",
   "keywords": [
     "react",
     "masked",
@@ -32,8 +32,7 @@
     "inputmask-core": "^2.1.1"
   },
   "peerDependencies": {
-    "react": "0.14.x || 15.x.x",
-    "prop-types": "^15.5.8"
+    "react": "0.14.x || 15.x.x"
   },
   "devDependencies": {
     "eslint-config-jonnybuchanan": "2.0.3",
@@ -43,6 +42,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/insin/react-maskedinput.git"
+    "url": "https://github.com/IIaJIeHo/react-maskedinput.git"
   }
 }
