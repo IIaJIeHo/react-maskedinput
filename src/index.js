@@ -277,7 +277,9 @@ MaskedInput.defaultProps = {
 
 let styles = {
   maskedWrapper: {
-    position: 'relative'
+    position: 'relative',
+    width: '100%',
+    display: 'inline-block'
   },
   maskedInput: {
     background: 'transparent',
