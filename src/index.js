@@ -217,7 +217,7 @@ export class MaskedInput extends React.Component {
   _updateValue(e) {
     this.mask.setValue(this.mask.getValue())
     if (this.props.onChange) {
-      this.props.onChange(e)
+      this.props.onChange(e, this.mask)
     }
   }
 
@@ -321,20 +321,22 @@ export class MaskedInputFixed extends React.Component {
     }
   }
 
-  _onChange(e) {
-    let val = e.target.value
+  _onChange(e, mask) {
+    let val = mask.getRawValue()
     let placeholderChar = this.props.placeholderChar
-    let index = val.indexOf(placeholderChar)
-    let newVal = index === -1 ? val : val.slice(0, index)
+    let arrVal = val.split(placeholderChar)
+    let newRawVal = arrVal.join('')
+    mask.setValue(newRawVal)
+    let finalVal = mask.getValue()
     let newE = {
       ...e,
       target: {
         ...e.target,
-        value: newVal
+        value: finalVal
       }
     }
     this.setState({
-      val: newVal
+      val: finalVal
     })
     this.props.onChange(newE)
   }
@@ -346,8 +348,8 @@ export class MaskedInputFixed extends React.Component {
 
     return <div className={classWrapper} style={styles.maskedWrapper} >
             <MaskedInput {...filteredProps}
-                 onChange={(e) => {
-                   this._onChange(e)
+                 onChange={(e, mask) => {
+                   this._onChange(e, mask)
                  }}
                  value={this.state.val}
                  ref={(r) => this.input = r && r.input}
