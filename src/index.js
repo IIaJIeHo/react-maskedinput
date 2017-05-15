@@ -326,9 +326,11 @@ export class MaskedInputFixed extends React.Component {
     let placeholderChar = this.props.placeholderChar
     let index = val.indexOf(placeholderChar)
     let newVal = index === -1 ? val : val.slice(0, index)
+    e.target.value = newVal
     this.setState({
       val: newVal
     })
+    this.props.onChange(e)
   }
 
   render() {
@@ -340,7 +342,6 @@ export class MaskedInputFixed extends React.Component {
             <MaskedInput {...filteredProps}
                  onChange={(e) => {
                    this._onChange(e)
-                   onChange(e)
                  }}
                  value={this.state.val}
                  ref={(r) => this.input = r && r.input}
