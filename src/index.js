@@ -348,8 +348,8 @@ export class MaskedInputFixed extends React.Component {
               style={styles.maskedInput} />
             <input { ...filteredPropsforInput }
                     value={ fixedPlaceholder }
-                    style={styles.maskedPlaceholder}
-                    className={hidePlaceholder ? classPlaceholder + ' ' + styles.hide : classPlaceholder}
+                    style={hidePlaceholder ? {...styles.maskedPlaceholder, ...styles.hide} : styles.maskedPlaceholder}
+                    className={classPlaceholder}
                     disabled />
           </div>
   }

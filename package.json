@@ -1,7 +1,7 @@
 {
   "name": "react-maskedinput-ultimate",
   "description": "Masked <input/> React component",
-  "version": "3.4.6",
+  "version": "3.4.7",
   "main": "./lib/index.js",
   "jsnext:main": "es6/index.js",
   "standalone": "MaskedInput",
