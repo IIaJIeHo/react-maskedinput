@@ -330,7 +330,7 @@ export class MaskedInputFixed extends React.Component {
   }
 
   render() {
-    let { showPlaceholder, placeholderFixed, className = '', classWrapper = '', classPlaceholder = '', onChange, ...filteredProps } = this.props
+    let { showPlaceholder, placeholderFixed, hidePlaceholder, className = '', classWrapper = '', classPlaceholder = '', onChange, ...filteredProps } = this.props
     let { placeholderChar, isRevealingMask, ...filteredPropsforInput } = filteredProps
     let fixedPlaceholder = this.state.val.concat(placeholderFixed.slice(this.state.val.length))
 
@@ -347,7 +347,7 @@ export class MaskedInputFixed extends React.Component {
             <input { ...filteredPropsforInput }
                     value={ fixedPlaceholder }
                     style={styles.maskedPlaceholder}
-                    className={this.props.hidePlaceholder ? classPlaceholder + ' ' + styles.hide : classPlaceholder}
+                    className={hidePlaceholder ? classPlaceholder + ' ' + styles.hide : classPlaceholder}
                     disabled />
           </div>
   }
