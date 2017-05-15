@@ -78,9 +78,9 @@ class App extends React.Component {
       <p>Placeholders could be fixed while typing with Revealing Mask</p>
       <div className="form-field">
         <label htmlFor="expiry">Expiry Date:</label>
-        <MaskedInput ref={(r)=> this.masked = r} mask="11/1111" name="expiry" id="expiry" placeholderFixed="mm/yyyy" onChange={(e) => this._onChange(e)} 
+        <MaskedInput ref={(r)=> this.masked = r} mask="11/1111" name="expiry" id="expiry" placeholderFixed="mm/yyyy" value={this.state.expiry}  onChange={(e) => this._onChange(e)} 
         classWrapper="inputInline"
-        classPlaceholder="inputGrey" 
+        classPlaceholder="inputGrey"
         />
       </div>
       <div className="form-field">

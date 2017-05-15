@@ -106,7 +106,7 @@ export class MaskedInput extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.mask !== this.props.mask && this.mask.selection.start) {
+    if ((prevProps.mask !== this.props.mask && this.mask.selection.start)||(prevProps.value !== this.props.value)) {
       this._updateInputSelection()
     }
   }
@@ -326,11 +326,17 @@ export class MaskedInputFixed extends React.Component {
     let placeholderChar = this.props.placeholderChar
     let index = val.indexOf(placeholderChar)
     let newVal = index === -1 ? val : val.slice(0, index)
-    e.target.value = newVal
+    let newE = {
+      ...e,
+      target: {
+        ...e.target,
+        value: newVal
+      }
+    }
     this.setState({
       val: newVal
     })
-    this.props.onChange(e)
+    this.props.onChange(newE)
   }
 
   render() {
