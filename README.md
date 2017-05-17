@@ -1,6 +1,10 @@
-# `MaskedInput`
+# react-maskedinput-ultimate
 
-A [React](http://facebook.github.io/react/) component for `<input>` masking, built on top of [inputmask-core](https://github.com/insin/inputmask-core).
+Based on: [react-maskedinput](https://github.com/insin/react-maskedinput).
+
+And:      [inputmask-core](https://github.com/insin/inputmask-core)
+
+A [React](http://facebook.github.io/react/) component for `<input>` masking, built on top of .
 
 ![This project has never been used by its author, other than while making it.](https://img.shields.io/badge/author--usage-never-red.png "This project has never been used by its author, other than while making it")
 
@@ -13,36 +17,39 @@ A [React](http://facebook.github.io/react/) component for `<input>` masking, bui
 `MaskedInput` can be used on the server, or bundled for the client using an npm-compatible packaging system such as [Browserify](http://browserify.org/) or [webpack](http://webpack.github.io/).
 
 ```
-npm install react-maskedinput --save
+npm install react-maskedinput-ultimate --save
 ```
 
 ### Browser bundle
 
 The browser bundle exposes a global `MaskedInput` variable and expects to find a global `React` (>= 0.14.0) variable to work with.
 
-* [react-maskedinput.js](https://unpkg.com/react-maskedinput/umd/react-maskedinput.js) (development version)
-* [react-maskedinput.min.js](https://unpkg.com/react-maskedinput/umd/react-maskedinput.min.js) (compressed production version)
+* [react-maskedinput-ultimate.js](https://unpkg.com/react-maskedinput/umd/react-maskedinput.js) (development version)
+* [react-maskedinput-ultimate.min.js](https://unpkg.com/react-maskedinput/umd/react-maskedinput.min.js) (compressed production version)
 
 ## Usage
 
 Give `MaskedInput` a [`mask`](#mask-string) and an `onChange` callback:
 
 ```javascript
-var React = require('react')
-var MaskedInput = require('react-maskedinput')
+import React from 'react'
+import MaskedInput from 'react-maskedinput-ultimate'
 
-var CreditCardDetails = React.createClass({
-  state: {
-    card: '',
-    expiry: '',
-    ccv: ''
-  },
+class CreditCardDetails extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      card: '',
+      expiry: '',
+      ccv: ''
+     }
+   }
 
   _onChange(e) {
     var stateChange = {}
     stateChange[e.target.name] = e.target.value
     this.setState(stateChange)
-  },
+  }
 
   render() {
     return <div className="CreditCardDetails">
@@ -60,28 +67,26 @@ var CreditCardDetails = React.createClass({
       </label>
     </div>
   }
-})
+}
 ```
 
 Create some wrapper components if you have a masking configuration which will be reused:
 
 ```javascript
-var CustomInput = React.createClass({
-  render() {
-    return <MaskedInput
-      mask="1111-WW-11"
-      placeholder="1234-WW-12"
-      size="11"
-      {...this.props}
-      formatCharacters={{
-        'W': {
-          validate(char) { return /\w/.test(char ) },
-          transform(char) { return char.toUpperCase() }
-        }
+const CustomInput = (props) => (
+  <MaskedInput
+    mask="1111-WW-11"
+    placeholder="1234-WW-12"
+    size="11"
+    {....props}
+    formatCharacters={{
+      'W': {
+        validate(char) { return /\w/.test(char ) },
+        transform(char) { return char.toUpperCase() }
       }
-    }/>
-  }
-})
+    }
+  }/>
+);
 ```
 
 ## Props

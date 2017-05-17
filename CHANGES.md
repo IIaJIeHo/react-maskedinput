@@ -1,3 +1,7 @@
+## 3.4.10 / 2016-05-15
+
+* Provide an ability to use 'isRevealingMask' and 'placeholderFixed'
+
 ## 3.3.2 / 2016-12-01
 
 * Fix for both Android and MS Edge input entering
