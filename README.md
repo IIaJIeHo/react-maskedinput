@@ -73,18 +73,19 @@ class CreditCardDetails extends React.Component {
 Create some wrapper components if you have a masking configuration which will be reused:
 
 ```javascript
+let formatters = {
+      'W': {
+        validate(char) { return /\w/.test(char ) },
+        transform(char) { return char.toUpperCase() }
+      }
+    }
 const CustomInput = (props) => (
   <MaskedInput
     mask="1111-WW-11"
     placeholder="1234-WW-12"
     size="11"
     {....props}
-    formatCharacters={{
-      'W': {
-        validate(char) { return /\w/.test(char ) },
-        transform(char) { return char.toUpperCase() }
-      }
-    }}/>
+    formatCharacters={formatters}/>
 );
 ```
 
