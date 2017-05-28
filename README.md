@@ -84,8 +84,7 @@ const CustomInput = (props) => (
         validate(char) { return /\w/.test(char ) },
         transform(char) { return char.toUpperCase() }
       }
-    }
-  }/>
+    }}/>
 );
 ```
 
